@@ -161,7 +161,6 @@ p {
   border-radius: 12px;
   box-shadow: 0 2px 8px var(--shadow);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
 }
 
 .card:hover {
@@ -245,11 +244,22 @@ p {
 }
 
 /* ==================== TA CARDS ==================== */
+.ta-card .course-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.ta-card .course-link:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
 .ta-card .card-details {
   display: none;
   margin-top: var(--spacing-sm);
   padding-top: var(--spacing-sm);
-  border-top: 2px solid var(--accent-light);
+  border-top: 2px solid var(--primary-color);
   color: var(--text-dark);
 }
 
@@ -259,14 +269,12 @@ p {
 
 .ta-card .expand-hint {
   font-size: 0.85rem;
-  color: var(--secondary-color);
+  color: var(--primary-color);
   font-style: italic;
   margin-top: var(--spacing-xs);
 }
 
-.ta-card.active .expand-hint {
-  display: none;
-}
+/* Don't hide expand hint - it changes text dynamically */
 
 /* ==================== PROJECT CARDS ==================== */
 .project-card img {

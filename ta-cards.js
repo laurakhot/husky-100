@@ -2,39 +2,49 @@
 
 function initTACards() {
   const taCards = document.querySelectorAll('.ta-card');
+  console.log('Found', taCards.length, 'TA cards');
 
   taCards.forEach(card => {
-    card.addEventListener('click', () => {
-      // Toggle active state
-      card.classList.toggle('active');
+    const expandHint = card.querySelector('.expand-hint');
 
-      // Optional: Close other cards (uncomment if you want accordion behavior)
-      // taCards.forEach(otherCard => {
-      //   if (otherCard !== card) {
-      //     otherCard.classList.remove('active');
-      //   }
-      // });
-    });
+    // Only expand when clicking on the expand hint text
+    if (expandHint) {
+      const updateText = () => {
+        const isActive = card.classList.contains('active');
+        console.log('Updating text, isActive:', isActive);
+        expandHint.textContent = isActive ? 'Click to collapse ↑' : 'Click to read reflection →';
+        console.log('New text:', expandHint.textContent);
+      };
 
-    // Make keyboard accessible
-    card.setAttribute('tabindex', '0');
-    card.setAttribute('role', 'button');
-    card.setAttribute('aria-expanded', 'false');
+      expandHint.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent event bubbling
+        card.classList.toggle('active');
+        updateText();
+      });
 
-    card.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        card.click();
-      }
-    });
+      // Make keyboard accessible
+      expandHint.setAttribute('tabindex', '0');
+      expandHint.setAttribute('role', 'button');
+      expandHint.setAttribute('aria-expanded', 'false');
+      expandHint.style.cursor = 'pointer';
 
-    // Update aria-expanded when toggled
-    const observer = new MutationObserver(() => {
-      const isActive = card.classList.contains('active');
-      card.setAttribute('aria-expanded', isActive.toString());
-    });
+      expandHint.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          card.classList.toggle('active');
+          updateText();
+        }
+      });
 
-    observer.observe(card, { attributes: true, attributeFilter: ['class'] });
+      // Update aria-expanded when toggled
+      const observer = new MutationObserver(() => {
+        const isActive = card.classList.contains('active');
+        expandHint.setAttribute('aria-expanded', isActive.toString());
+        // Don't update text here - let updateText() handle it
+      });
+
+      observer.observe(card, { attributes: true, attributeFilter: ['class'] });
+    }
   });
 }
 
