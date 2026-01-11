@@ -108,6 +108,7 @@ h2 {
   color: var(--primary-color);
   margin-top: var(--spacing-lg);
   margin-bottom: var(--spacing-sm);
+  text-align: center;
 }
 
 h3 {
@@ -151,6 +152,7 @@ p {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--spacing-md);
   margin-top: var(--spacing-md);
+  align-items: start;
 }
 
 .card {
@@ -182,6 +184,27 @@ p {
 .card-description {
   color: var(--text-light);
   margin-bottom: var(--spacing-sm);
+}
+
+/* ==================== TA PHOTO ==================== */
+.ta-photo-container {
+  text-align: center;
+  margin: var(--spacing-md) auto var(--spacing-lg);
+  max-width: 500px;
+}
+
+.ta-photo {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ta-photo:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px var(--shadow);
 }
 
 /* ==================== TA CARDS ==================== */
