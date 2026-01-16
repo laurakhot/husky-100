@@ -1,30 +1,8 @@
 {
   "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/$1"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/index.html",
-      "dest": "/index.html"
-    },
-    {
-      "src": "/timeline.html",
-      "dest": "/timeline.html"
-    },
-    {
-      "src": "/ta.html",
-      "dest": "/ta.html"
-    },
-    {
-      "src": "/web-impact.html",
-      "dest": "/web-impact.html"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/timeline", "destination": "/timeline.html" },
+    { "source": "/ta", "destination": "/ta.html" },
+    { "source": "/web-impact", "destination": "/web-impact.html" }
   ]
 }
