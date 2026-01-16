@@ -513,6 +513,48 @@ p {
 
 /* Hover effects removed */
 
+/* ==================== HUSKY MASCOT SCROLL INDICATOR ==================== */
+.husky-scroll-indicator {
+  position: absolute;
+  left: -10px; /* Position on the timeline line, just to the left */
+  transform: translateX(-100%); /* Shift fully to the left */
+  width: 100px; /* Bigger mascot */
+  height: auto;
+  transition: top 0.15s cubic-bezier(0.4, 0, 0.2, 1); /* Much faster animation */
+  z-index: 10;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  pointer-events: none; /* Don't interfere with clicks */
+}
+
+@media (max-width: 768px) {
+  .husky-scroll-indicator {
+    width: 70px; /* Slightly smaller on tablet */
+  }
+}
+
+@media (max-width: 480px) {
+  .husky-scroll-indicator {
+    width: 50px; /* Even smaller on mobile */
+  }
+}
+
+/* Emphasized timeline item when husky is at it */
+.timeline-item.husky-active {
+  transform: scale(1.02);
+  transition: transform 0.15s ease;
+}
+
+.timeline-item.husky-active .timeline-content {
+  box-shadow: 0 8px 24px rgba(75, 46, 131, 0.2);
+  border-color: var(--primary-color);
+}
+
+.timeline-item.husky-active .timeline-dot {
+  transform: scale(1.3);
+  background: var(--primary-color);
+  box-shadow: 0 0 0 8px rgba(75, 46, 131, 0.1);
+}
+
 /* Ensure main content has space and appears above images */
 main {
   position: relative;
