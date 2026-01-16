@@ -1,8 +1,8 @@
 {
   "redirects": [
-    { "source": "/timeline.html", "destination": "/timeline", "permanent": true },
-    { "source": "/ta.html", "destination": "/ta", "permanent": true },
-    { "source": "/web-impact.html", "destination": "/web-impact", "permanent": true }
+    { "source": "/timeline", "destination": "/timeline", "permanent": true },
+    { "source": "/ta", "destination": "/ta", "permanent": true },
+    { "source": "/web-impact", "destination": "/web-impact", "permanent": true }
   ],
   "rewrites": [
     { "source": "/", "destination": "/index.html" },
