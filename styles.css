@@ -330,17 +330,48 @@ p {
 
 /* ==================== SIMPLE PROJECT GRID ==================== */
 .projects-year-section {
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
 }
 
 .year-heading {
   color: var(--secondary-color);
   font-size: 1.5rem;
   font-weight: 600;
-  text-align: center;
+  text-align: left;
   margin-bottom: var(--spacing-md);
   padding-bottom: var(--spacing-xs);
   border-bottom: 2px solid var(--secondary-color);
+}
+
+.collapsible-heading {
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.collapsible-heading:hover {
+  color: var(--primary-color);
+}
+
+.collapse-indicator {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  font-size: 0.8em;
+}
+
+.collapsible-heading.collapsed .collapse-indicator {
+  transform: rotate(-90deg);
+}
+
+.collapsible-content {
+  max-height: 10000px;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.3s ease;
+}
+
+.collapsible-content.collapsed {
+  max-height: 0;
+  opacity: 0;
 }
 
 .project-grid {
