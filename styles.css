@@ -164,8 +164,17 @@ p {
 
   body.homepage .homepage-content {
     margin: 0;
-    max-height: calc(100vh - 400px);
-    overflow-y: auto;
+    padding: var(--spacing-md) var(--spacing-lg);
+    max-height: none;
+    overflow-y: visible;
+  }
+
+  body.homepage .homepage-content p {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  body.homepage .homepage-content .mt-lg {
+    margin-top: var(--spacing-md);
   }
 }
 
