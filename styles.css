@@ -463,6 +463,10 @@ p {
   margin-bottom: var(--spacing-md);
 }
 
+.mt-0 {
+  margin-top: 0 !important;
+}
+
 .section-icon {
   font-size: 2rem;
   margin-right: var(--spacing-sm);
