@@ -244,6 +244,20 @@ p {
 }
 
 /* ==================== TA CARDS ==================== */
+/* Make all TA cards same height */
+.ta-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Let grid control the height */
+}
+
+/* Force equal heights on desktop */
+@media (min-width: 769px) {
+  .card-grid {
+    grid-auto-rows: 1fr; /* All rows same height */
+  }
+}
+
 .ta-card .course-link {
   color: var(--primary-color);
   text-decoration: none;
@@ -274,6 +288,22 @@ p {
   margin-top: var(--spacing-xs);
 }
 
+/* Husky Mascot Card */
+.husky-mascot-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xl);
+  background-color: var(--card-bg); /* Same as other cards */
+}
+
+.mascot-card-image {
+  max-width: 200px; /* Larger image */
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+}
+
 /* Don't hide expand hint - it changes text dynamically */
 
 /* ==================== PROJECT CARDS ==================== */
@@ -296,6 +326,70 @@ p {
 
 .project-link:hover {
   color: var(--secondary-color);
+}
+
+/* ==================== SIMPLE PROJECT GRID ==================== */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--spacing-md);
+  margin: var(--spacing-lg) 0;
+}
+
+.project-card-simple {
+  background: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card-simple:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px var(--shadow);
+}
+
+.project-card-simple a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.project-screenshot {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.project-info {
+  padding: var(--spacing-sm);
+}
+
+.project-info h3 {
+  font-size: 1rem;
+  margin: 0 0 var(--spacing-xs) 0;
+  color: var(--text-color);
+}
+
+.project-type {
+  font-size: 0.875rem;
+  color: var(--primary-color);
+  font-weight: 600;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .project-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--spacing-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ==================== SECTION BLOCKS ==================== */
