@@ -146,6 +146,29 @@ p {
   max-width: 800px;
 }
 
+/* Make homepage non-scrollable on large screens */
+@media (min-width: 1024px) {
+  body.homepage {
+    overflow: hidden;
+    height: 100vh;
+  }
+
+  body.homepage main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 60px);
+    margin-bottom: 0;
+    padding: var(--spacing-sm);
+  }
+
+  body.homepage .homepage-content {
+    margin: 0;
+    max-height: calc(100vh - 400px);
+    overflow-y: auto;
+  }
+}
+
 /* ==================== CARDS (GENERAL) ==================== */
 .card-grid {
   display: grid;
