@@ -437,6 +437,86 @@ p {
   }
 }
 
+/* ==================== CAMPUS IMAGES ==================== */
+.campus-images {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+  margin: var(--spacing-lg) 0;
+  flex-wrap: wrap;
+}
+
+.campus-images img {
+  max-width: 300px;
+  height: auto;
+  opacity: 0.85;
+  mix-blend-mode: multiply;
+  border-radius: 12px;
+  transition: opacity 0.3s ease;
+}
+
+.campus-images img:hover {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .campus-images {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .campus-images img {
+    max-width: 100%;
+  }
+}
+
+/* ==================== TIMELINE PAGE STYLES ==================== */
+/* Timeline page uses the same .timeline class and styling as the original homepage timeline (defined above in lines 339-438) */
+
+/* Expandable timeline items */
+.timeline-expandable .timeline-content {
+  cursor: pointer;
+  position: relative;
+}
+
+.timeline-details {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.4s ease;
+  margin-top: var(--spacing-sm);
+}
+
+.timeline-expandable.active .timeline-details {
+  max-height: 1000px;
+  opacity: 1;
+}
+
+.timeline-details p {
+  margin-bottom: var(--spacing-sm);
+}
+
+.timeline-details p:last-child {
+  margin-bottom: 0;
+}
+
+.expand-hint {
+  display: block;
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: var(--spacing-sm);
+  transition: color 0.3s ease;
+}
+
+.timeline-expandable:hover .expand-hint {
+  color: var(--primary-color);
+}
+
+.timeline-expandable.active .expand-hint {
+  color: var(--primary-color);
+}
+
 /* ==================== UTILITY CLASSES ==================== */
 .text-center {
   text-align: center;
