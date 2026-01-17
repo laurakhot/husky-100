@@ -147,7 +147,7 @@ p {
   position: relative;
   z-index: 1;
   background-color: rgba(255, 255, 255, 0.9);
-  padding: var(--spacing-md) var(--spacing-lg)  var(--spacing-xs) var(--spacing-lg);
+  padding: var(--spacing-md) var(--spacing-lg) var(--spacing-lg) var(--spacing-lg);
   border-radius: 12px;
   box-shadow: 0 4px 16px var(--shadow);
   margin: var(--spacing-md) auto;
@@ -881,6 +881,21 @@ main {
   margin-top: var(--spacing-lg);
 }
 
+.mb-md {
+  margin-bottom: var(--spacing-md);
+}
+
 .mb-lg {
   margin-bottom: var(--spacing-lg);
+}
+
+.back-to-top {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.back-to-top:hover {
+  color: var(--primary-color);
 }
