@@ -286,18 +286,47 @@ p {
 
 /* ==================== TA CARDS ==================== */
 /* Make all TA cards same height */
-.ta-card {
+.ta-card.card {
   display: flex;
   flex-direction: column;
   height: 100%; /* Let grid control the height */
-  padding: 1rem;
-  margin: 0.5rem;
+  padding: 0.75rem 1rem; /* Compact padding for card shape */
+  margin: 0;
 }
 
-/* Force equal heights on desktop */
+.ta-card h3 {
+  margin: 0.25rem 0;
+  font-size: 1.2rem;
+}
+
+.ta-card .card-meta {
+  margin-bottom: 0.25rem;
+}
+
+.ta-card .card-description {
+  margin: 0.25rem 0;
+}
+
+.ta-card .expand-hint {
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+}
+
+/* Force equal heights on desktop - but only when no card is active */
 @media (min-width: 769px) {
-  .card-grid {
-    grid-auto-rows: 1fr; /* All rows same height */
+  .card-grid:not(.has-active-card) {
+    grid-auto-rows: 1fr; /* All rows same height when none expanded */
+  }
+
+  /* When a card is active, allow variable row heights */
+  .card-grid.has-active-card {
+    grid-auto-rows: auto;
+    align-items: start; /* Align cards to top, no stretching */
+  }
+
+  /* Inactive cards fit their content when one is expanded */
+  .card-grid.has-active-card .ta-card:not(.active) {
+    height: fit-content;
   }
 }
 
